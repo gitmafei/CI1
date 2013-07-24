@@ -23,18 +23,18 @@ class Welcome extends CI_Controller {
         $this->load->view('welcome_message',$out_datas);
     }
     private function _captcha(){
-        $this->load->helper("my_captcha");//¼ÓÔØÑéÖ¤Âë
+        $this->load->helper("captcha_helper");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
         $vals = array(
-              'img_path'     => './captcha/',        //ÑéÖ¤ÂëÍ¼Æ¬´æ·ÅµÄµØÖ·
-              'img_url'  => base_url()."/captcha/",  //Í¼Æ¬·ÃÎÊµÄÂ·¾¶
-              'img_width'    => '60',                //Í¼Æ¬µÄ¿í¶È
-              'img_height' => 20,                    //¸ß¶È
-              'expiration' => 1,                     //´æ·ÅÊ±¼ä,1·ÖÖÓ
-              'word_length'=> 4                      //ÏÔÊ¾¼¸Î»ÑéÖ¤Êý×Ö
+              'img_path'     => './captcha/',        //ï¿½ï¿½Ö¤ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ÅµÄµï¿½Ö·
+              'img_url'  => base_url()."/captcha/",  //Í¼Æ¬ï¿½ï¿½ï¿½Êµï¿½Â·ï¿½ï¿½
+              'img_width'    => '60',                //Í¼Æ¬ï¿½Ä¿ï¿½ï¿½ï¿½
+              'img_height' => 20,                    //ï¿½ß¶ï¿½
+              'expiration' => 1,                     //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½,1ï¿½ï¿½ï¿½ï¿½
+              'word_length'=> 4                      //ï¿½ï¿½Ê¾ï¿½ï¿½Î»ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
         );
         $cap = create_captcha($vals);
-        $out_datas["v_img"]=$cap["image"];                //Éú³ÉµÄÍ¼Æ¬ÎÄ¼þ
-        $out_datas["v_word"]=$cap["word"];                //Éú³ÉµÄÑéÖ¤Âë,Ò²¿É·ÅÈësessionÖÐ¹ÜÀí
+        $out_datas["v_img"]=$cap["image"];                //ï¿½ï¿½ï¿½Éµï¿½Í¼Æ¬ï¿½Ä¼ï¿½
+        $out_datas["v_word"]=$cap["word"];                //ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½Ö¤ï¿½ï¿½,Ò²ï¿½É·ï¿½ï¿½ï¿½sessionï¿½Ð¹ï¿½ï¿½ï¿½
         return $out_datas;
     }
 }
